@@ -1,0 +1,9 @@
+node_modules
+lib
+compile_commands.json
+.cache
+*.log
+*.tgz
+*.swp
+*.vsix
+.DS_Store
