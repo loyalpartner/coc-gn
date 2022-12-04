@@ -12,7 +12,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       run: { module: executable },
     } as ServerOptions,
     {
-      documentSelector: ['gn'],
+      documentSelector: ['gn', 'gni'],
       initializationOptions: config,
     }
   );

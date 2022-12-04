@@ -1,12 +1,14 @@
 {
   "name": "coc-gn",
-  "version": "0.0.0-development",
-  "description": "",
+  "version": "0.0.2",
+  "description": "GN language server extension for coc.nvim.",
   "author": "lee <loyalpartner@163.com>",
   "license": "MIT",
   "main": "lib/index.js",
   "keywords": [
-    "coc.nvim"
+    "coc.nvim",
+    "gn",
+    "language server protocol"
   ],
   "engines": {
     "coc": "^0.0.80"
