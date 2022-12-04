@@ -1,18 +1,16 @@
 # coc-gn
 
-
+GN language server extension for coc.nvim.
 
 ## Install
 
 `:CocInstall coc-gn`
 
-## Keymaps
+### Plug
 
-`nmap <silent> <C-l> <Plug>(coc-coc-gn-keymap)`
-
-## Lists
-
-`:CocList demo_list`
+```
+Plug 'loyalpartner/coc-gn',  {'do': 'yarn install --frozen-lockfile'}
+```
 
 ## License
 
