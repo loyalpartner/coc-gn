@@ -9621,7 +9621,8 @@ function getDefinition(file, line, column) {
             originSelectionRange: getRange(context.token.range),
             targetUri: URI2.file(filepath).toString(),
             targetRange: range,
-            targetSelectionRange: range
+            targetSelectionRange: range,
+            kkkkkkk
           };
         };
         try {
@@ -9682,4 +9683,3 @@ function getDocumentSymbol(file) {
   const symbols = parse(file).symbols;
   return symbols.map(mapToDocumentSymbol);
 }
-//# sourceMappingURL=server.js.map
