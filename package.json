@@ -1,6 +1,6 @@
 {
   "name": "coc-gn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "GN language server extension for coc.nvim.",
   "author": "lee <loyalpartner@163.com>",
   "license": "MIT",
@@ -26,6 +26,7 @@
     "semi": true
   },
   "devDependencies": {
+    "@types/node": "^18.11.13",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "coc.nvim": "^0.0.80",
@@ -35,7 +36,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "vscode-languageclient": "^8.0.2",
+    "vscode-languageserver": "^8.0.2",
+    "vscode-languageserver-textdocument": "^1.0.7",
+    "vscode-uri": "^3.0.5"
   },
   "activationEvents": [
     "*"
@@ -45,10 +50,18 @@
       "type": "object",
       "title": "coc-gn configuration",
       "properties": {
-        "coc-gn.enabled": {
+        "gn.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable coc-gn extension"
+        },
+        "gn.execArgv": {
+          "type": "array",
+          "default": [],
+          "description": "Extra arguments for node which start language server.",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },

@@ -1,4 +1,4 @@
-import { services, ExtensionContext, LanguageClient, workspace, ServerOptions } from 'coc.nvim';
+import { services, ExtensionContext, LanguageClient, workspace, ServerOptions, TransportKind } from 'coc.nvim';
 import path from 'path';
 
 export async function activate(context: ExtensionContext): Promise<void> {
@@ -6,10 +6,17 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   const config = workspace.getConfiguration('gn');
   const client = new LanguageClient(
-    'gn',
-    'gn',
+    'GN',
+    'GN language server',
     {
-      run: { module: executable },
+      run: {
+        module: executable,
+        transport: TransportKind.ipc,
+        options: {
+          cwd: workspace.root,
+          execArgv: config.execArgv || [],
+        },
+      },
     } as ServerOptions,
     {
       documentSelector: ['gn', 'gni'],
