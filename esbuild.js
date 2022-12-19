@@ -12,18 +12,6 @@ async function start(watch) {
     target: 'node10.12',
     outfile: 'lib/index.js',
   });
-  await require('esbuild').build({
-    entryPoints: ['src/server.ts'],
-    bundle: true,
-    watch,
-    minify: process.env.NODE_ENV === 'production',
-    sourcemap: process.env.NODE_ENV === 'development',
-    mainFields: ['module', 'main'],
-    external: ['coc.nvim'],
-    platform: 'node',
-    target: 'node10.12',
-    outfile: 'build/server.js',
-  });
 }
 
 let watch = false;

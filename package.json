@@ -1,6 +1,6 @@
 {
   "name": "coc-gn",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "GN language server extension for coc.nvim.",
   "author": "lee <loyalpartner@163.com>",
   "license": "MIT",
@@ -74,6 +74,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "gn.lscmd": {
+          "type": "string",
+          "description": "Path to `gnls` bin (Change requires `:CocRestart`)"
         }
       }
     },
