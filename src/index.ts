@@ -2,30 +2,29 @@ import {services, ExtensionContext, LanguageClient, workspace, TransportKind} fr
 import path from 'path'
 
 export async function activate(context: ExtensionContext): Promise<void> {
-	const config = workspace.getConfiguration("gn")
-	const serverPath = path.join('build', 'server.js')
+  const config = workspace.getConfiguration("gn")
+  const serverPath = path.join('build', 'server.js')
 
-	const module = config.lspcmd || context.asAbsolutePath(serverPath)
+  const module = config.lscmd || context.asAbsolutePath(serverPath)
 
-	const baseOptions = {module, ipc: TransportKind.ipc}
-	const serverOptions = {
-		run: baseOptions,
-		debug: {
-			...baseOptions,
-			runtime: 'node',
-			options: {
-				execArgv: config.execArgv || []
-			},
-		},
-	}
-	const clientOptions = {
-		documentSelector: [{language: 'gn'}],
-	}
+  const baseOptions = {
+    module, ipc: TransportKind.ipc,
+    options: {
+      execArgv: config.execArgv || []
+    },
+  }
+  const serverOptions = {
+    run: baseOptions,
+    debug: {...baseOptions, runtime: 'node'},
+  }
+  const clientOptions = {
+    documentSelector: [{language: 'gn'}],
+  }
 
-	const client = new LanguageClient(
-		'GN Language Server',
-		serverOptions, clientOptions
-	)
+  const client = new LanguageClient(
+    'GN Language Server',
+    serverOptions, clientOptions
+  )
 
-	context.subscriptions.push(services.registLanguageClient(client))
+  context.subscriptions.push(services.registLanguageClient(client))
 }
