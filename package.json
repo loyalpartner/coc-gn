@@ -1,6 +1,6 @@
 {
   "name": "coc-gn",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "GN language server extension for coc.nvim.",
   "author": "lee <loyalpartner@163.com>",
   "license": "MIT",
@@ -55,9 +55,17 @@
     "bracketSpacing": false
   },
   "activationEvents": [
-    "*"
+    "onLanguage:gn"
   ],
   "contributes": {
+    "rootPatterns": [
+      {
+        "filetype": "gn",
+        "patterns": [
+          ".gn"
+        ]
+      }
+    ],
     "configuration": {
       "type": "object",
       "title": "coc-gn configuration",
